@@ -32,6 +32,35 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+
+            <div class="row jc-between">
+                <div class="col-4">
+                    <div id="headlines">
+                        <h1 class="white pb-30">Five Arena : Reservez votre terrains</h1>
+                        <p class="white pb-30">Reservez sur plus de 200 terrains disponible </p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div id="search-terrain" class="cadre">
+                        <h2 class="mb-30">Rechercher votre terrains</h2>
+                        <form action="" class="form">
+                            <div>
+                                <select name="type_surface" class="full">
+                                    <option value="">Séléctionnez le type de surface</option>
+                                    <option value="">Pelouse</option>
+                                    <option value="">Béton</option>
+                                </select>
+                            </div>
+                            <div>
+                                <input type="date" name="date" class="full">
+                            </div>
+                            <button type="submit" class="btn btn-yellow full">Rechercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <main>
         <?php echo $content; ?>
