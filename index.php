@@ -1,4 +1,5 @@
 <?php 
+define('URL','http://localhost:8888/fivearena/');
 require('controllers/userController.php');
  //?p=inscription
  if(isset($_GET['p'])){
