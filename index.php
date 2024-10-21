@@ -8,6 +8,9 @@ require('controllers/userController.php');
         case 'inscription':
                 inscription();
             break;
+        case 'connexion':
+                connexion();
+            break;
         
         default:
             
