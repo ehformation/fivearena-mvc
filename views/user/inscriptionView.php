@@ -1,0 +1,1 @@
+<p>formulaire d'inscription</p>
