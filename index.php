@@ -7,7 +7,7 @@
    - Si vous utilisez le port '8080' à la place de '8888', l'URL devient : 'http://localhost:8080/fivearena-mvc/'.
    - Si vous renommez le dossier en 'monprojet', l'URL devient : 'http://localhost:8888/monprojet/'.
 */
-define('URL','http://localhost:8888/fivearena-mvc/'); 
+define('URL_ASSETS','http://localhost:8888/fivearena-mvc/assets/'); 
 require('controllers/userController.php');
 //http://localhost:8888/fivearena/?p=inscription
  if(isset($_GET['p'])){

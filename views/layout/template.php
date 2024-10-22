@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Five Arena - <?php echo $title ?></title>
-    <link rel="shortcut icon" href="<?= URL; ?>images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="<?= URL; ?>css/reset.css">
+    <link rel="shortcut icon" href="<?= URL_ASSETS; ?>images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="<?= URL_ASSETS; ?>css/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="<?= URL; ?>css/style.css">
+    <link rel="stylesheet" href="<?= URL_ASSETS; ?>css/style.css">
     <script src="https://kit.fontawesome.com/81e489c8c5.js" crossorigin="anonymous"></script>
 </head>
 
@@ -18,7 +18,7 @@
         <div class="container mb-50">
             <div class="row ai-center">
                 <div id="logo" class="cadre">
-                    <img src="<?=URL;?>images/logo-fa.png" alt="Logo five Arena">
+                    <img src="<?=URL_ASSETS;?>images/logo-fa.png" alt="Logo five Arena">
                 </div>
                 <nav id="nav" class="cadre">
                     <ul>
@@ -41,7 +41,7 @@
             <div class="row jc-between">
                 <div class="col-4">
                     <!-- logo -->
-                    <img src="<?=URL;?>images/logo-fg-blanc.png" alt="Logo five Arena" class="mb-30">
+                    <img src="<?=URL_ASSETS;?>images/logo-fg-blanc.png" alt="Logo five Arena" class="mb-30">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, et!</p>
                 </div>
                 <div class="col-3">
@@ -68,7 +68,7 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="<?= URL;?>js/main.js"></script>
+    <script src="<?= URL_ASSETS;?>js/main.js"></script>
 </body>
 
 </html>
