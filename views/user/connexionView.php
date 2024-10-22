@@ -1,7 +1,5 @@
 <?php ob_start(); //Commence l'enregistrement  ?>
-
-?>
-<div id="search-terrain" class="cadre col-12" ">
+<div id="search-terrain" class="cadre col-12">
     <h2 class=" mb-30 jc-center center">Connexion</h2>
     <form action="" class="form col-4 m-auto" method="post">
         <div>
