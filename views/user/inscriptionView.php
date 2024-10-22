@@ -1,7 +1,7 @@
 <?php ob_start(); //Commence l'enregistrement  ?>
 <div id="search-terrain" class="cadre col-12">
     <h2 class=" mb-30 jc-center center">Inscription</h2>
-    <form action="" class="form col-4 m-auto" method="post">
+    <form action="index.php?p=inscription" class="form col-4 m-auto" method="post">
         <div>
             <label for="email">Email <span class="red">*</span></label>
             <input type="text" id="email" name="email" placeholder="Entrez votre email" class="full">
