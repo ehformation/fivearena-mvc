@@ -1,6 +1,6 @@
 <?php 
 
-function dbConnect(){
+function dbConnect() {
     $pdo = new PDO(
         'mysql:host=localhost;dbname=fivearena', // serveur et le nom de la base données
         'root',// identifiant
