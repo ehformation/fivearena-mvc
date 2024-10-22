@@ -1,7 +1,15 @@
 <?php 
-define('URL','http://localhost:8888/fivearena/');
+/*
+   Attention : la valeur de l'URL dépend de comment vous avez configuré votre projet localement.
+   - Le port '8888' fait référence au port utilisé par votre serveur local (par exemple, MAMP, XAMPP ou un autre serveur local).
+   - 'fivearena-mvc' correspond au nom du dossier où vous avez placé votre projet sur votre serveur local.
+   Si vous changez de port ou de dossier, vous devrez ajuster cette URL. Par exemple :
+   - Si vous utilisez le port '8080' à la place de '8888', l'URL devient : 'http://localhost:8080/fivearena-mvc/'.
+   - Si vous renommez le dossier en 'monprojet', l'URL devient : 'http://localhost:8888/monprojet/'.
+*/
+define('URL','http://localhost:8888/fivearena-mvc/'); 
 require('controllers/userController.php');
- //?p=inscription
+//http://localhost:8888/fivearena/?p=inscription
  if(isset($_GET['p'])){
 
     switch ($_GET['p']) {
