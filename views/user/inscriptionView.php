@@ -4,7 +4,7 @@
     
     <form action="index.php?p=inscription" class="form col-4 m-auto" method="post">
         <?php 
-        if (count($errors) > 0) {
+        if (isset($error) && count($errors) > 0) {
             echo "<div style='background:#ff000017;padding:10px'>";
             foreach ($errors as $error) {
                 echo "<p style='color:red;'>$error</p>";
