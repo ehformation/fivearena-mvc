@@ -1,11 +1,14 @@
 <?php 
 /*
-   Attention : la valeur de l'URL dépend de comment vous avez configuré votre projet localement.
-   - Le port '8888' fait référence au port utilisé par votre serveur local (par exemple, MAMP, XAMPP ou un autre serveur local).
-   - 'fivearena-mvc' correspond au nom du dossier où vous avez placé votre projet sur votre serveur local.
-   Si vous changez de port ou de dossier, vous devrez ajuster cette URL. Par exemple :
-   - Si vous utilisez le port '8080' à la place de '8888', l'URL devient : 'http://localhost:8080/fivearena-mvc/'.
-   - Si vous renommez le dossier en 'monprojet', l'URL devient : 'http://localhost:8888/monprojet/'.
+   Attention : la constante 'URL_ASSETS' définit le chemin vers le dossier des ressources (assets) de votre projet.
+   - 'http://localhost:8888/' correspond à votre serveur local.
+   - 'fivearena-mvc' est le nom du dossier principal de votre projet.
+   - 'assets/' est le sous-dossier où se trouvent les fichiers de ressources (images, CSS, JavaScript, etc.).
+   
+   Si vous changez le port (8888), le nom du dossier de votre projet ou le nom du dossier 'assets', vous devez également
+   modifier cette URL. Par exemple :
+   - Si le port devient '8080', l'URL sera : 'http://localhost:8080/fivearena-mvc/assets/'.
+   - Si vous renommez le dossier en 'monprojet', l'URL devient : 'http://localhost:8888/monprojet/assets/'.
 */
 define('URL_ASSETS','http://localhost:8888/fivearena-mvc/assets/'); 
 require('controllers/userController.php');
