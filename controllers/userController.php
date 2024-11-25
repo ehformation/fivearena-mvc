@@ -31,18 +31,17 @@ function inscription() {
  * - Si l'utilisateur n'existe pas, relance le processus de connexion (par exemple, avec un message d'erreur).
  */
 function connect(){
+        
     $email = $_POST["email"];
     $pass = $_POST["pass"];
     
     if($user = getUserIfExist($email, $pass)) {
         $_SESSION["user"] = $user;
         if(isAdmin($email)){
-            require('views/user/dashboardView.php');
+            header("Location: index.php?p=dashboard");
         }else{
-            require('views/accueilView.php');
+            header("Location: index.php?p=accueil");
         }
-    }else{
-        connexion();
     }
 } 
 
@@ -75,7 +74,19 @@ function isValidFields($email, $nom, $prenom, $tel,$pass, $confirm) {
 
 
 function connexion() {
-    require('views/user/connexionView.php');
+    if(!isLoggedIn()){
+        require('views/user/connexionView.php');
+    }else{
+        header("Location: index.php?p=accueil");
+    }
+}
+
+function isLoggedIn() {
+    if(!empty($_SESSION['user'])) {
+        return true;
+    }else{
+        return false;
+    }
 }
 
 ?>

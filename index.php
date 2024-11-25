@@ -1,4 +1,5 @@
 <?php 
+session_start();
 /*
    Attention : la constante 'URL_ASSETS' définit le chemin vers le dossier des ressources (assets) de votre projet.
    - 'http://localhost:8888/' correspond à votre serveur local.
@@ -12,6 +13,7 @@
 */
 define('URL_ASSETS','http://localhost:8888/fivearena-mvc/assets/'); 
 require('controllers/userController.php');
+require('controllers/defaultController.php');
 //http://localhost:8888/fivearena/?p=inscription
  if(isset($_GET['p'])){
 
@@ -27,6 +29,13 @@ require('controllers/userController.php');
                 //Affiche le formulaire de connexion
                 connexion();
             break;
+        case 'dashboard': 
+                dashboard();
+            break;
+
+        case 'accueil': 
+                accueil();
+            break;
         
         default:
             
@@ -34,7 +43,7 @@ require('controllers/userController.php');
     }
 
  }else{
-    echo "Aucun paramètre d'url défini";
+    accueil();
  }
 
 ?>

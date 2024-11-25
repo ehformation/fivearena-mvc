@@ -48,11 +48,12 @@ function isAdmin($email) {
     $pdoStatement->bindParam(':email', $email, PDO::PARAM_STR);
 
     $user =  $pdoStatement->fetch();
-
-    if($user['role'] == 1) {
-        return true;
+    if($user) {
+        if($user['role'] == 1) {
+            return true;
+        }
     }
-
+    
     return false;
 }
 ?>
