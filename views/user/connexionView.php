@@ -1,4 +1,4 @@
-<?php ob_start(); //Commence l'enregistrement  ?>
+<?php ob_start(); ?>
 <div id="search-terrain" class="cadre col-12">
     <h2 class=" mb-30 jc-center center">Connexion</h2>
     <form action="" class="form col-4 m-auto" method="post">
@@ -15,7 +15,7 @@
 </div>
 
 <?php
-    $content = ob_get_clean(); //copie l'enregistrement dans la variable content
+    $content = ob_get_clean(); 
     $title = "Connexion";
     require('./views/layout/template.php');
 ?>

@@ -19,6 +19,32 @@ function inscription() {
     }
     require('views/user/inscriptionView.php');
 }
+/**
+ * Gère le processus de connexion d'un utilisateur.
+ * 
+ * Cette fonction récupère les données du formulaire de connexion (email et mot de passe),
+ * vérifie si un utilisateur correspondant existe en base de données.
+ * 
+ * - Si l'utilisateur existe :
+ *   - Redirige l'utilisateur vers le tableau de bord s'il est administrateur.
+ *   - Redirige l'utilisateur vers la page d'accueil s'il n'est pas administrateur.
+ * - Si l'utilisateur n'existe pas, relance le processus de connexion (par exemple, avec un message d'erreur).
+ */
+function connect(){
+    $email = $_POST["email"];
+    $pass = $_POST["pass"];
+    
+    if($user = getUserIfExist($email, $pass)) {
+        $_SESSION["user"] = $user;
+        if(isAdmin($email)){
+            require('views/user/dashboardView.php');
+        }else{
+            require('views/accueilView.php');
+        }
+    }else{
+        connexion();
+    }
+} 
 
 function isValidFields($email, $nom, $prenom, $tel,$pass, $confirm) {
     $errors = [] ;

@@ -16,4 +16,43 @@ function userRegister($email, $nom, $prenom, $tel, $pass, $confirm, $id_role) {
     $pdoStatement->execute();
 }
 
+/**
+ * Cette fonction retourne l'utilisateur. Si l'utilisateur n'est pas trouve dans la BDD on retourne false
+ */
+function getUserIfExist($email, $pass) {
+    $pdo = dbConnect();
+    $access = true;
+    $pdoStatement = $pdo->prepare('SELECT * FROM user where email=:email');
+    $pdoStatement->bindParam(':email', $email, PDO::PARAM_STR);
+    $pdoStatement->execute();
+    $user =  $pdoStatement->fetch();
+    if (!$user) {
+        $access = false;
+    } else {
+        if (empty($pass)) {
+            $access = false;
+        } else {
+            $verified_pass = password_verify($pass, $user['pass']);
+            if (!$verified_pass) {
+                $access = false;
+            }
+        }
+    }
+
+    return $access ? $user : false;
+}
+
+function isAdmin($email) {
+    $pdo = dbConnect();
+    $pdoStatement = $pdo->prepare('SELECT * FROM user where email=:email AND role = 1');
+    $pdoStatement->bindParam(':email', $email, PDO::PARAM_STR);
+
+    $user =  $pdoStatement->fetch();
+
+    if($user['role'] == 1) {
+        return true;
+    }
+
+    return false;
+}
 ?>

@@ -20,6 +20,11 @@ require('controllers/userController.php');
                 inscription();
             break;
         case 'connexion':
+                //Si il a envoyé le formulaire !
+                if(!empty($_POST['bouton'])){
+                    connect();
+                }
+                //Affiche le formulaire de connexion
                 connexion();
             break;
         
