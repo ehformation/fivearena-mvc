@@ -13,30 +13,37 @@ session_start();
 */
 define('URL_ASSETS','http://localhost:8888/fivearena-mvc/assets/'); 
 require('controllers/userController.php');
+require('controllers/terrainController.php');
 require('controllers/defaultController.php');
 //http://localhost:8888/fivearena/?p=inscription
  if(isset($_GET['p'])){
 
     switch ($_GET['p']) {
         case 'inscription':
-                inscription();
+                inscriptionPage();
             break;
+
         case 'connexion':
                 //Si il a envoyé le formulaire !
                 if(!empty($_POST['bouton'])){
                     connect();
                 }else{
                     //Affiche le formulaire de connexion
-                    connexion();
+                    connexionPage();
                 }
                 
             break;
+
         case 'dashboard': 
-                dashboard();
+                dashboardPage();
+            break;
+
+        case 'nos-terrains': 
+                terrainsPage();
             break;
 
         case 'accueil': 
-                accueil();
+                accueilPage();
             break;
         
         default:

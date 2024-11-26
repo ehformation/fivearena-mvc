@@ -1,14 +1,14 @@
 <?php 
 require('models/terrainModels.php');
 
-function dashboard() {
+function dashboardPage() {
     if(!isLoggedIn()){
         header("Location: index.php?p=connexion");
     }else{
         require('views/user/dashboardView.php');
     }
 }
-function accueil() {
+function accueilPage() {
     $terrains = getTerrains(4);
     require('views/accueilView.php');
 }

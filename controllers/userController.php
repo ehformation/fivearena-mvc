@@ -1,6 +1,6 @@
 <?php 
 require('models/userModels.php');
-function inscription() {
+function inscriptionPage() {
     if(isset($_POST["bouton"])){
         $email      = $_POST["email"];
         $nom        = $_POST["nom"];
@@ -79,7 +79,7 @@ function isValidFields($email, $nom, $prenom, $tel,$pass, $confirm) {
 }
 
 
-function connexion() {
+function connexionPage() {
     if(!isLoggedIn()){
         require('views/user/connexionView.php');
     }else{

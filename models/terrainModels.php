@@ -2,8 +2,13 @@
 
 function getTerrains($limit = 10) {
     $pdo = dbConnect();
-    $pdoStatement = $pdo->prepare('SELECT * FROM terrain LIMIT :limit ORDER BY DESC');
-    $pdoStatement->bindValue(':limit', $limit, PDO::PARAM_INT);
+    if($limit != -1){
+        $pdoStatement = $pdo->prepare('SELECT * FROM terrain ORDER BY nom DESC LIMIT :limit');
+        $pdoStatement->bindValue(':limit', $limit, PDO::PARAM_INT);
+    }else{
+        $pdoStatement = $pdo->prepare('SELECT * FROM terrain ORDER BY nom DESC');
+    }
+    
     $pdoStatement->execute();
 
     $terrains = $pdoStatement->fetchAll();
