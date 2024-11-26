@@ -9,7 +9,7 @@ function inscription() {
         $pass       = $_POST["pass"];
         $confirm    = $_POST["confirm"];
         $id_role    = 2;
-        $errors = [];
+        $errors     = [];
 
         $errors = isValidFields($email, $nom, $prenom, $tel,$pass, $confirm);
 
@@ -34,6 +34,7 @@ function connect(){
         
     $email = $_POST["email"];
     $pass = $_POST["pass"];
+    $errors = [];
     
     if($user = getUserIfExist($email, $pass)) {
         $_SESSION["user"] = $user;
@@ -42,7 +43,12 @@ function connect(){
         }else{
             header("Location: index.php?p=accueil");
         }
+    }else{
+        $errors[] = "Identifiant ou mot de passe incorrect";
+        require('views/user/connexionView.php');
     }
+    
+    
 } 
 
 function isValidFields($email, $nom, $prenom, $tel,$pass, $confirm) {

@@ -25,9 +25,11 @@ require('controllers/defaultController.php');
                 //Si il a envoyé le formulaire !
                 if(!empty($_POST['bouton'])){
                     connect();
+                }else{
+                    //Affiche le formulaire de connexion
+                    connexion();
                 }
-                //Affiche le formulaire de connexion
-                connexion();
+                
             break;
         case 'dashboard': 
                 dashboard();
