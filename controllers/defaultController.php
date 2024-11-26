@@ -12,4 +12,8 @@ function accueilPage() {
     $terrains = getTerrains(4);
     require('views/accueilView.php');
 }
+
+function page404() {
+    require('views/404View.php');
+}
 ?>

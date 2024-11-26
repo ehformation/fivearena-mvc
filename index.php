@@ -47,7 +47,7 @@ require('controllers/defaultController.php');
             break;
         
         default:
-            
+                page404();
             break;
     }
 
