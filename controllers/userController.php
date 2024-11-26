@@ -83,7 +83,7 @@ function connexionPage() {
     if(!isLoggedIn()){
         require('views/user/connexionView.php');
     }else{
-        header("Location: index.php?p=accueil");
+        header("Location: index.php?p=account");
     }
 }
 
@@ -92,6 +92,24 @@ function isLoggedIn() {
         return true;
     }else{
         return false;
+    }
+}
+
+function accountPage(){
+    if(!isLoggedIn()){
+        header("Location: index.php?p=inscription");
+    }else{
+        $nom = $_SESSION['user']['nom'];
+        $prenom = $_SESSION['user']['prenom'];
+        require('views/user/accountView.php');
+    }
+}
+
+function deconnexion(){
+    if(isLoggedIn()){
+        unset($_SESSION['user']);
+        session_destroy();
+        header('Location: index.php');
     }
 }
 
