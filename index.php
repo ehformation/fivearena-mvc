@@ -45,7 +45,11 @@ require('controllers/defaultController.php');
         case 'accueil': 
                 accueilPage();
             break;
-        
+            
+        case 'contact': 
+            contactPage();
+        break;
+
         default:
                 page404();
             break;

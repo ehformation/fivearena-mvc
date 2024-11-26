@@ -28,25 +28,14 @@
                         <p>Aucun terrains n'existe</p>
                     <?php endif;  ?>   
                 </div>
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
     </section>
-    </div>
-
-
-
-
-
-    
-    
-        
-            
-        </div>
-        <div class="swiper-pagination"></div>
-    </div>
-
+</div>
 
 <?php
     $content = ob_get_clean(); 
     $title = "Accueil";
-    require('./views/layout/template.php');
+    require('./views/layout/template-frontpage.php');
 ?>

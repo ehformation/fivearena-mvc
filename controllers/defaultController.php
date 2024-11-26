@@ -16,4 +16,8 @@ function accueilPage() {
 function page404() {
     require('views/404View.php');
 }
+
+function contactPage() {
+    require('views/contactView.php');
+}
 ?>
