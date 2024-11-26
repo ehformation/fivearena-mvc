@@ -23,8 +23,8 @@
                 <nav id="nav" class="cadre">
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="">Nos terrains</a></li>
-                        <li><a href="">Contact</a></li>
+                        <li><a href="index.php?p=nos-terrains">Nos terrains</a></li>
+                        <li><a href="index.php?p=contact">Contact</a></li>
                     </ul>
                 </nav>
                 <div id="sign">
@@ -48,8 +48,8 @@
                     <!-- lien utiles -->
                     <h3 class="mb-30">Liens utilies</h3>
                     <ul>
-                        <li><a href="">Nos terrains</a></li>
-                        <li><a href="">Contact</a></li>
+                        <li><a href="index.php?p=nos-terrains">Nos terrains</a></li>
+                        <li><a href="index.php?p=contact">Contact</a></li>
                         <li><a href="">Mentions légales</a></li>
                         <li><a href="">CGU / CGV</a></li>
                     </ul>
