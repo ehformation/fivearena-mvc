@@ -52,7 +52,7 @@ require('controllers/defaultController.php');
     }
 
  }else{
-    accueil();
+    accueilPage();
  }
 
 ?>
