@@ -16,6 +16,18 @@ function userRegister($email, $nom, $prenom, $tel, $pass, $confirm, $id_role) {
     $pdoStatement->execute();
 }
 
+function userUpdate($nom, $prenom, $tel, $id) {
+    $pdo = dbConnect();
+    $pdoStatement = $pdo->prepare('UPDATE user SET nom = :nom, prenom = :prenom, tel = :tel WHERE id = :id');
+
+    $pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
+    $pdoStatement->bindParam(':nom', $nom, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':tel', $tel, PDO::PARAM_STR);
+
+    $pdoStatement->execute();
+}
+
 /**
  * Cette fonction retourne l'utilisateur. Si l'utilisateur n'est pas trouve dans la BDD on retourne false
  */
@@ -40,6 +52,17 @@ function getUserIfExist($email, $pass) {
     }
 
     return $access ? $user : false;
+}
+
+function getUserById($id){
+    $pdo = dbConnect();
+    $pdoStatement = $pdo->prepare('SELECT * FROM user where id=:id');
+    $pdoStatement->bindParam(':id', $id, PDO::PARAM_INT);
+    $pdoStatement->execute();
+    $user =  $pdoStatement->fetch();
+
+    return $user;
+
 }
 
 function isAdmin($email) {

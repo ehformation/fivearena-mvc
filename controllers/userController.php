@@ -11,7 +11,8 @@ function inscriptionPage() {
         $id_role    = 2;
         $errors     = [];
 
-        $errors = isValidFields($email, $nom, $prenom, $tel,$pass, $confirm);
+        $errors = isValidFields([$email, $nom, $prenom, $tel, $pass, $confirm], 
+                                ['Email', 'Nom', 'Prénom', 'Téléphone', 'Mot de passe', 'Confirmation du mot de passe']);
 
         if(count($errors) == 0){
             userRegister($email, $nom, $prenom, $tel,$pass, $confirm, $id_role);
@@ -51,30 +52,21 @@ function connect(){
     
 } 
 
-function isValidFields($email, $nom, $prenom, $tel,$pass, $confirm) {
+function isValidFields($fields, $labels) {
     $errors = [] ;
-    if (empty($email)) {
-        $errors[] = "Le champ Email est requis.";
-    }
-    if (empty($nom)) {
-        $errors[] = "Le champ Nom est requis.";
-    }
-    if (empty($prenom)) {
-        $errors[] = "Le champ Prénom est requis.";
-    }
-    if (empty($tel)) {
-        $errors[] = "Le champ Téléphone est requis.";
-    }
-    if (empty($pass)) {
-        $errors[] = "Le champ Mot de passe est requis.";
-    }
-    if (empty($confirm)) {
-        $errors[] = "Le champ Confirmation du mot de passe est requis.";
-    }
-    if (!empty($pass) && !empty($confirm) && $pass !== $confirm) {
-        $errors[] = "Les mots de passe ne correspondent pas.";
+
+    foreach ($fields as $key => $field ){
+        if(empty($field)){
+            $errors[] = "Le champs " . $labels[$key] . " est requis";
+        }
     }
 
+    $passwordKey = array_search('Mot de passe', $labels);
+    $confirmPasswordKey = array_search('Confirmation du mot de passe', $labels);
+
+    if(!empty($passwordKey) && !empty($confirmPasswordKey) && $fields[$passwordKey] != $fields[$confirmPasswordKey]){
+        $errors[] = "Les mots de passe ne correspondent pas.";
+    }
     return $errors;
 }
 
@@ -110,6 +102,25 @@ function deconnexion(){
         unset($_SESSION['user']);
         session_destroy();
         header('Location: index.php');
+    }
+}
+
+function updateAccount() {
+    if(isLoggedIn()){
+        $user = getUserById($_SESSION['user']['id']);
+        if(isset($_POST['bouton'])){
+
+            $nom        = $_POST["nom"];
+            $prenom     = $_POST["prenom"];
+            $tel        = $_POST["tel"];
+
+            $errors = isValidFields([$nom, $prenom, $tel], ['Nom', 'Prénom', 'Téléphone']);
+
+            if(count($errors) == 0){
+                userUpdate($nom, $prenom, $tel, $_SESSION['user']['id']);
+            }
+        }
+        require('views/user/accountUpdateView.php');
     }
 }
 

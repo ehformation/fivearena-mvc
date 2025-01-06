@@ -55,6 +55,10 @@ require('controllers/defaultController.php');
         case 'account': 
             accountPage();
             break;
+
+        case 'update-account': 
+                updateAccount();
+            break;
         
         case 'deconnexion': 
             deconnexion();

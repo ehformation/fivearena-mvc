@@ -4,7 +4,7 @@
     <h2>Bonjour <?php echo $nom . ' ' . $prenom ?></h2>
 
     <ul class="mt-30">
-        <li><a class="btn btn-blue full mb-10" href="">Modifier mon compte</a></li>
+        <li><a class="btn btn-blue full mb-10" href="index.php?p=update-account">Modifier mon compte</a></li>
         <li><a class="btn btn-blue full  mb-10" href="">Mes revervations</a></li>
         <li><a class="btn btn-red full" href="index.php?p=deconnexion">Déconnexion</a></li>
     </ul>
