@@ -21,6 +21,7 @@
                                     <h3 class="mb-10"><?php echo $terrain["nom"] ?></h3>
                                     <p class="mb-10"><i class="fa-solid fa-map-pin"></i><?php echo $terrain["adresse"] ?></p>
                                     <p class="bold yellow"><?php echo $terrain["prix"] ?>$/heure</p>
+                                    <a href="index.php?p=terrain&id=<?php echo $terrain["id"] ?>" class="btn btn-yellow full mt-20">Réserver</a>
                                 </div>
                             </div>
                         <?php endforeach ?>

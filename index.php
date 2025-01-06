@@ -22,51 +22,58 @@ require('controllers/defaultController.php');
 
     switch ($_GET['p']) {
         case 'inscription':
-                inscriptionPage();
-            break;
+            inscriptionPage();
+        break;
 
         case 'connexion':
-                //Si il a envoyé le formulaire !
-                if(!empty($_POST['bouton'])){
-                    connect();
-                }else{
-                    //Affiche le formulaire de connexion
-                    connexionPage();
-                }
-                
-            break;
+            //Si il a envoyé le formulaire !
+            if(!empty($_POST['bouton'])){
+                connect();
+            }else{
+                //Affiche le formulaire de connexion
+                connexionPage();
+            } 
+        break;
 
         case 'dashboard': 
-                dashboardPage();
-            break;
+            dashboardPage();
+        break;
 
         case 'nos-terrains': 
-                terrainsPage();
-            break;
+            terrainsPage();
+        break;
+        
+        case 'terrain': 
+            if(isset($_GET['id'])){
+                terrainDetailPage($_GET['id']);
+            }else{
+                page404();
+            }
+        break;
 
         case 'accueil': 
-                accueilPage();
-            break;
+            accueilPage();
+        break;
 
         case 'contact': 
             contactPage();
-            break;
+        break;
         
         case 'account': 
             accountPage();
-            break;
+        break;
 
         case 'update-account': 
-                updateAccount();
-            break;
+            updateAccount();
+        break;
         
         case 'deconnexion': 
             deconnexion();
-            break;
+        break;
 
         default:
-                page404();
-            break;
+            page404();
+        break;
     }
 
  }else{

@@ -18,3 +18,18 @@ function getTerrains($limit = 10) {
 
     return false;
 }
+
+function getTerrainById($id) {
+    $pdo = dbConnect();
+    $pdoStatement = $pdo->prepare('SELECT * FROM terrain WHERE id=:id');
+    $pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
+    
+    $pdoStatement->execute();
+
+    $terrain = $pdoStatement->fetch();
+    if($terrain){
+        return $terrain;
+    }
+
+    return false;
+}
