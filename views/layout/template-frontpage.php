@@ -28,7 +28,13 @@
                     </ul>
                 </nav>
                 <div id="sign">
-
+                    <?php if(!isLoggedIn()) : ?>
+                        <a class="btn btn-blue" href="?p=connexion">Connexion</a>
+                        <a class="btn btn-yellow" href="?p=inscription">Inscription</a>
+                    <?php else : ?>
+                        <a class="btn btn-blue" href="?p=account">Compte</a>
+                        <a class="btn btn-red" href="?p=deconnexion">Deconnexion</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

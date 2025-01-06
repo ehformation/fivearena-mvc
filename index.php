@@ -12,6 +12,8 @@ session_start();
    - Si vous renommez le dossier en 'monprojet', l'URL devient : 'http://localhost:8888/monprojet/assets/'.
 */
 define('URL_ASSETS','http://localhost:8888/fivearena-mvc/assets/'); 
+require('models/dbModels.php');
+
 require('controllers/userController.php');
 require('controllers/terrainController.php');
 require('controllers/defaultController.php');

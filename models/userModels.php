@@ -1,5 +1,5 @@
 <?php 
-require('dbModels.php');
+
 
 function userRegister($email, $nom, $prenom, $tel, $pass, $confirm, $id_role) {
     $pdo = dbConnect();
@@ -44,7 +44,7 @@ function getUserIfExist($email, $pass) {
 
 function isAdmin($email) {
     $pdo = dbConnect();
-    $pdoStatement = $pdo->prepare('SELECT * FROM user where email=:email AND role = 1');
+    $pdoStatement = $pdo->prepare('SELECT * FROM user where email=:email AND id_role = 1');
     $pdoStatement->bindParam(':email', $email, PDO::PARAM_STR);
 
     $user =  $pdoStatement->fetch();

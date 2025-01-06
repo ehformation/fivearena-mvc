@@ -6,7 +6,7 @@
     <ul class="mt-30">
         <li><a class="btn btn-blue full mb-10" href="">Modifier mon compte</a></li>
         <li><a class="btn btn-blue full  mb-10" href="">Mes revervations</a></li>
-        <li><a class="btn btn-blue full" href="index.php?p=deconnexion">Déconnexion</a></li>
+        <li><a class="btn btn-red full" href="index.php?p=deconnexion">Déconnexion</a></li>
     </ul>
     </div>
 <?php

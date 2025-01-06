@@ -380,6 +380,7 @@ a:hover {
 
 .btn-blue {
     background-color: #004aad;
+    border: 1px solid #004aad;
 }
 
 .btn-blue:hover {
@@ -388,10 +389,20 @@ a:hover {
 
 .btn-yellow {
     background-color: #ffbd59;
+    border: 1px solid #ffbd59;
 }
 
 .btn-yellow:hover {
     color: #ffbd59;
+}
+
+.btn-red {
+    background-color: #ec4343;
+    border: 1px solid #ec4343;
+}
+
+.btn-red:hover {
+    color: #da2a2a;
 }
 
 .form select,
