@@ -31,7 +31,16 @@
             </div>
             <div class="col-4">
                 <div id="search-terrain" class="cadre">
-                    <form  class="form" action="" method="post">
+                    <?php 
+                        if (isset($errors) && count($errors) > 0) {
+                            echo "<div style='background:#ff000017;padding:10px'>";
+                            foreach ($errors as $error) {
+                                echo "<p style='color:red;'>$error</p>";
+                            }
+                            echo "</div>";
+                        }
+                    ?>
+                    <form  class="form" action="index.php?p=booking&id=<?php echo $terrain['id'] ?>" method="post">
                         <label class="mb-10" for="dateresa">Date et heure de reservation</label>
                         <input type="datetime-local" id="dateresa" class="full" name="dateresa">
                         <p class="mb-20">Vous pouvez reserver 1h max par reservation</p>

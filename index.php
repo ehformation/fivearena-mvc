@@ -17,6 +17,7 @@ require('models/dbModels.php');
 require('controllers/userController.php');
 require('controllers/terrainController.php');
 require('controllers/defaultController.php');
+require('controllers/bookingController.php');
 //http://localhost:8888/fivearena/?p=inscription
  if(isset($_GET['p'])){
 
@@ -46,6 +47,14 @@ require('controllers/defaultController.php');
         case 'terrain': 
             if(isset($_GET['id'])){
                 terrainDetailPage($_GET['id']);
+            }else{
+                page404();
+            }
+        break;
+
+        case 'booking': 
+            if(isset($_GET['id'])){
+                booking($_GET['id']);
             }else{
                 page404();
             }
