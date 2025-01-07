@@ -25,3 +25,8 @@ function adminAddTerrain(){
     }
     require('views/admin/adminAddTerrainView.php');
 }
+
+function adminListTerrain() {
+    $terrains = getTerrains(-1);
+    require('views/admin/adminListTerrainView.php');
+}

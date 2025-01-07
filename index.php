@@ -90,6 +90,10 @@ require('controllers/bookingController.php');
             adminAddTerrain();
         break;
 
+        case 'admin-list-terrain': 
+            adminListTerrain();
+        break;
+        
         default:
             page404();
         break;

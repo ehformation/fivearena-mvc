@@ -3,7 +3,7 @@
         <h2>Terrains</h2>
         <ul class="mt-20">
             <li><a class="btn btn-blue full mb-10" href="index.php?p=admin-add-terrain">Ajouter un terrain</a></li>
-            <li><a class="btn btn-blue full  mb-10" href="">Lister les terrains</a></li>
+            <li><a class="btn btn-blue full  mb-10" href="index.php?p=admin-list-terrain">Lister les terrains</a></li>
         </ul>
     </div>
     <div class="mt-30">
