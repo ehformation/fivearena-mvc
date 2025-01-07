@@ -9,5 +9,19 @@ function terrainDetailPage($id) {
 }
 
 function adminAddTerrain(){
+    if(isset($_POST["bouton"])){
+        $nom            = $_POST["nom"];
+        $description    = $_POST["description"];
+        $surface        = $_POST["surface"];
+        $options        = $_POST["options"];
+        $adresse        = $_POST["adresse"];
+        $prix           = $_POST["prix"];
+
+        $errors     = [];
+
+        if(count($errors) == 0){
+            addTerrain($nom, $description, $surface, $options,$adresse, $prix);
+        }
+    }
     require('views/admin/adminAddTerrainView.php');
 }

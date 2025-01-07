@@ -34,14 +34,13 @@
                     <input type="text" id="adresse" name="adresse" placeholder="123 rue du jardin" class="full">
                 </div>
                 <div>
-                    <label for="prix">Prix <span class="red">*</span></label>
+                    <label for="prix">Prix / heure<span class="red">*</span></label>
                     <input type="text" id="prix" name="prix" placeholder="123" class="full">
                 </div>
-                <input type="submit" name="bouton" value="Inscription" class="btn btn-yellow full">
+                <input type="submit" name="bouton" value="Ajouter un terrain" class="btn btn-yellow full">
             </form>
         </div>
     </div>
-
 </div>
 
 <?php

@@ -33,3 +33,18 @@ function getTerrainById($id) {
 
     return false;
 }
+function addTerrain($nom, $description, $surface, $options, $adresse, $prix){
+
+    $pdo = dbConnect();
+    $pdoStatement = $pdo->prepare('INSERT INTO terrain (nom, description, surface, options, adresse, prix, image) VALUES (:nom, :description, :surface, :options, :adresse, :prix, :image)');
+
+    $pdoStatement->bindParam(':nom', $nom, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':description', $description, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':surface', $surface, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':options', $options, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':adresse', $adresse, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':prix', $prix, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':image', "terrain.png", PDO::PARAM_STR);
+
+    return $pdoStatement->execute();
+}
