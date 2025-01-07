@@ -14,6 +14,8 @@ session_start();
 define('URL_ASSETS','http://localhost:8888/fivearena-mvc/assets/'); 
 require('models/dbModels.php');
 
+require('helpers/helpers.php');
+
 require('controllers/userController.php');
 require('controllers/terrainController.php');
 require('controllers/defaultController.php');
@@ -74,6 +76,10 @@ require('controllers/bookingController.php');
 
         case 'update-account': 
             updateAccount();
+        break;
+
+        case 'my-booking': 
+            myBooking();
         break;
         
         case 'deconnexion': 

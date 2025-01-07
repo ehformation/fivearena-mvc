@@ -23,3 +23,15 @@ function booking($terrain_id) {
     }
 }
 
+function canCancelBooking($booking_id){
+    return isCancellableBooking($booking_id);
+}
+
+function myBooking() {
+    if(isLoggedIn()){
+        $user_id = $_SESSION['user']['id'];
+        $bookings = getBookingByUserId($user_id);
+        require('views/user/myBookingView.php');
+    }
+}
+

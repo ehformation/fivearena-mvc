@@ -35,3 +35,32 @@ function isBookingAvailable($datetime, $terrain_id){
 
     return true;
 }
+
+function isCancellableBooking($booking_id) {
+    $pdo = dbConnect();
+    $pdoStatement = $pdo->prepare('SELECT COUNT(*) AS count FROM reservation WHERE id = :id AND dateheure > DATE_ADD(NOW() , INTERVAL 48 HOUR)');
+    $pdoStatement->bindValue(':id', $booking_id, PDO::PARAM_INT);
+
+    $pdoStatement->execute();
+    $isCancellable = $pdoStatement->fetch();
+
+    return $isCancellable['count'] > 0;
+}
+
+function getBookingByUserId($user_id) {
+    $pdo = dbConnect();
+
+    $pdoStatement = $pdo->prepare('SELECT r.id, r.dateheure, r.status, t.nom AS terrain_nom, t.adresse AS           terrain_adresse 
+    FROM reservation r 
+    INNER JOIN terrain t ON r.id_terrain = t.id 
+    WHERE r.id_user = :id_user 
+    AND r.dateheure > NOW()
+    ORDER BY r.dateheure DESC');
+
+    $pdoStatement->bindValue(':id_user', $user_id, PDO::PARAM_INT);
+    $pdoStatement->execute();
+
+    $reservations = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $reservations;
+}
