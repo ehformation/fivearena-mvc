@@ -86,6 +86,10 @@ require('controllers/bookingController.php');
             deconnexion();
         break;
 
+        case 'admin-add-terrain': 
+            adminAddTerrain();
+        break;
+
         default:
             page404();
         break;

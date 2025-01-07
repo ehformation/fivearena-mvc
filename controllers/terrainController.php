@@ -7,3 +7,7 @@ function terrainDetailPage($id) {
     $terrain = getTerrainById($id);
     require('views/terrainDetailView.php');
 }
+
+function adminAddTerrain(){
+    require('views/admin/adminAddTerrainView.php');
+}

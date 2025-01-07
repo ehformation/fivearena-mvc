@@ -415,7 +415,8 @@ a:hover {
 }
 
 .form select,
-.form input {
+.form input,
+.form textarea {
     padding: 12px;
     border: 1px solid #dcdcdc;
     border-radius: 13px;
