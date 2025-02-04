@@ -5,7 +5,11 @@ function dashboardPage() {
     if(!isLoggedIn()){
         header("Location: index.php?p=connexion");
     }else{
-        require('views/user/dashboardView.php');
+        if(!isAdmin($_SESSION['user']['email'])){
+            header("Location: index.php?p=connexion");
+        }else{
+            require('views/user/dashboardView.php');
+        }
     }
 }
 function accueilPage() {

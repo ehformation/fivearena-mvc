@@ -67,16 +67,29 @@ function getUserById($id){
 
 function isAdmin($email) {
     $pdo = dbConnect();
-    $pdoStatement = $pdo->prepare('SELECT * FROM user where email=:email AND id_role = 1');
-    $pdoStatement->bindParam(':email', $email, PDO::PARAM_STR);
+    $id_role = 1;
 
+    $pdoStatement = $pdo->prepare('SELECT * FROM user WHERE email=:email AND id_role = :id_role');
+    $pdoStatement->bindParam(':email', $email, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':id_role', $id_role, PDO::PARAM_INT);
+    $pdoStatement->execute();
     $user =  $pdoStatement->fetch();
+    
     if($user) {
-        if($user['role'] == 1) {
+        if($user['id_role'] == 1) {
             return true;
         }
     }
     
     return false;
+}
+
+function getUsers(){
+    $pdo = dbConnect();
+    $pdoStatement = $pdo->prepare('SELECT * FROM user');
+    $pdoStatement->execute();
+    $users = $pdoStatement->fetchAll();
+    
+    return $users;
 }
 ?>

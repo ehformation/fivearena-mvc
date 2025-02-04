@@ -20,6 +20,7 @@ require('controllers/userController.php');
 require('controllers/terrainController.php');
 require('controllers/defaultController.php');
 require('controllers/bookingController.php');
+
 //http://localhost:8888/fivearena/?p=inscription
  if(isset($_GET['p'])){
 
@@ -92,6 +93,14 @@ require('controllers/bookingController.php');
 
         case 'admin-list-terrain': 
             adminListTerrain();
+        break;
+
+        case 'admin-add-users': 
+            adminAddUsers();
+        break;
+
+        case 'admin-list-users': 
+            adminListUsers();
         break;
         
         default:

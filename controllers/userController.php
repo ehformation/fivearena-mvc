@@ -124,4 +124,11 @@ function updateAccount() {
     }
 }
 
+function adminListUsers(){
+    $users = getUsers();
+    require('views/admin/adminListUsersView.php');
+}
+
+function adminAddUsers(){}
+
 ?>
