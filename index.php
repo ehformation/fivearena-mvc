@@ -102,6 +102,14 @@ require('controllers/bookingController.php');
         case 'admin-list-users': 
             adminListUsers();
         break;
+
+        case 'admin-add-booking': 
+            adminAddBooking();
+        break;
+
+        case 'admin-list-booking': 
+            adminListBooking();
+        break;
         
         default:
             page404();

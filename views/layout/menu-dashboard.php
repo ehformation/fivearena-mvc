@@ -9,8 +9,8 @@
     <div class="mt-30">
         <h2>Reservations</h2>
         <ul class="mt-20">
-            <li><a class="btn btn-blue full mb-10" href="">Créer une réservation</a></li>
-            <li><a class="btn btn-blue full  mb-10" href="">Lister les réservation</a></li>
+            <li><a class="btn btn-blue full mb-10" href="index.php?p=admin-add-booking">Créer une réservation</a></li>
+            <li><a class="btn btn-blue full  mb-10" href="index.php?p=admin-list-booking">Lister les réservation</a></li>
         </ul>
     </div>
     <div class="mt-30">

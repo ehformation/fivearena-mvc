@@ -35,3 +35,27 @@ function myBooking() {
     }
 }
 
+function adminAddBooking(){
+    if(isset($_POST['bouton'])){
+
+        $user_id         = $_POST['user_id'];
+        $terrain_id      = $_POST['terrain_id'];
+        $datetime        = $_POST["dateresa"];
+
+        if(isBookingAvailable($datetime, $terrain_id)){
+            if(!addBooking($datetime, $terrain_id, $user_id)){
+                $errors[] = 'Erreur lors de la reservation du terrain';
+            }
+        }else{
+            $errors[] = 'Le terrain est déjà reservé'; 
+        }
+        
+    }
+    $terrains = getTerrains(-1);
+    $users = getUsers();
+    require('views/admin/adminAddBookingView.php');
+}
+
+function adminListBooking(){
+    require('views/admin/adminListBookingView.php');
+}
