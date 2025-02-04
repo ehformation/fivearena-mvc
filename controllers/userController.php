@@ -129,6 +129,21 @@ function adminListUsers(){
     require('views/admin/adminListUsersView.php');
 }
 
-function adminAddUsers(){}
+function adminAddUsers(){
+    if(isset($_POST["bouton"])){
+        $nom            = $_POST["nom"];
+        $prenom         = $_POST["prenom"];
+        $email          = $_POST["email"];
+        $pass           = $_POST["pass"];
+        $tel            = $_POST["tel"];
+
+        $errors     = [];
+
+        if(count($errors) == 0){
+            userRegister($email, $nom, $prenom, $tel, $pass, $pass, 2);
+        }
+    }
+    require('views/admin/adminAddUsersView.php');
+}
 
 ?>
