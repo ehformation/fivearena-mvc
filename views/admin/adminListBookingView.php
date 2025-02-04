@@ -19,7 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    <!-- Exercice : Afficher TOUTE les reservation -->
                 </tbody>
             </table>
         </div>
