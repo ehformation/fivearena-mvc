@@ -20,6 +20,16 @@
                 </thead>
                 <tbody>
                     <!-- Exercice : Afficher TOUTE les reservation -->
+                    <?php foreach($bookings as $booking) : ?>
+                        <tr>
+                            <td><?php echo $booking['id'] ?></td>
+                            <td><?php echo $booking['user_nom'] ?> <?php echo $booking['user_prenom'] ?></td>
+                            <td><?php echo $booking['terrain_nom'] ?></td>
+                            <td><?php echo date( 'd/m/Y H:i:s', strtotime($booking['dateheure']) ) ?> - <?php echo date( 'd/m/Y H:i:s', strtotime($booking['dateheure'] . '+1 hour') ) ?></td>
+                            <td><?php echo improveDisplayStatus($booking['status']) ?></td>
+                            <td></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

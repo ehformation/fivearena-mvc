@@ -64,3 +64,19 @@ function getBookingByUserId($user_id) {
 
     return $reservations;
 }
+
+function getBookings() {
+    $pdo = dbConnect();
+
+    $pdoStatement = $pdo->prepare('SELECT r.id, r.dateheure, r.status, t.nom AS terrain_nom, u.nom as user_nom, u.prenom as user_prenom 
+    FROM reservation r 
+    INNER JOIN terrain t ON r.id_terrain = t.id
+    INNER JOIN user u ON r.id_user = u.id
+    AND r.dateheure > NOW()
+    ORDER BY r.dateheure DESC');
+    $pdoStatement->execute();
+
+    $reservations = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $reservations;
+}

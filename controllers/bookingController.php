@@ -57,5 +57,6 @@ function adminAddBooking(){
 }
 
 function adminListBooking(){
+    $bookings = getBookings();
     require('views/admin/adminListBookingView.php');
 }
