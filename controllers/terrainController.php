@@ -47,7 +47,13 @@ function adminEditTerrain(){
         require('views/admin/adminEditTerrainView.php');
     }
 }
-
+function adminDeleteTerrain() {
+    if(isset($_GET['id'])){
+        if(deteleTerrain($_GET['id'])){
+           header("Location: index.php?p=admin-list-terrain"); 
+        }
+    }
+}
 function adminListTerrain() {
     $terrains = getTerrains(-1);
     require('views/admin/adminListTerrainView.php');

@@ -64,3 +64,12 @@ function updateTerrain($nom, $description, $surface, $options, $adresse, $prix, 
     $pdoStatement->execute();
 }
 
+
+function deteleTerrain($terrain_id) {
+    $pdo = dbConnect();
+    $pdoStatement = $pdo->prepare('DELETE FROM terrain WHERE id = :terrain_id');
+
+    $pdoStatement->bindValue(':terrain_id', $terrain_id, PDO::PARAM_INT);
+
+    return $pdoStatement->execute();
+}

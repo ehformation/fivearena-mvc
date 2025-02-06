@@ -28,7 +28,7 @@
                             <td><?php echo $terrain["options"]; ?></td>
                             <td><?php echo $terrain["adresse"]; ?></td>
                             <td><?php echo $terrain["prix"]; ?></td>
-                            <td><a href="index.php?p=admin-edit-terrain&id=<?php echo $terrain["id"]; ?>">Modifier</a></td>
+                            <td><a href="index.php?p=admin-edit-terrain&id=<?php echo $terrain["id"]; ?>">Modifier</a> <a href="index.php?p=admin-delete-terrain&id=<?php echo $terrain["id"]; ?>">Supprimer</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -95,6 +95,10 @@ require('controllers/bookingController.php');
             adminEditTerrain();
         break;
 
+        case 'admin-delete-terrain': 
+            adminDeleteTerrain();
+        break;
+
         case 'admin-list-terrain': 
             adminListTerrain();
         break;
