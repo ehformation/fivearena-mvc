@@ -99,6 +99,10 @@ require('controllers/bookingController.php');
             adminAddUsers();
         break;
 
+        case 'admin-edit-users': 
+            adminEditUsers();
+        break;
+
         case 'admin-list-users': 
             adminListUsers();
         break;

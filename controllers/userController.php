@@ -146,4 +146,29 @@ function adminAddUsers(){
     require('views/admin/adminAddUsersView.php');
 }
 
+function adminEditUsers(){
+    if(isset($_GET['id'])){
+        if(isset($_POST["bouton"])){
+            $nom            = $_POST["nom"];
+            $prenom         = $_POST["prenom"];
+            $email          = $_POST["email"];
+            $pass           = $_POST["pass"];
+            $tel            = $_POST["tel"];
+            $user_id        = $_GET['id'];
+    
+            $errors     = [];
+
+            $errors = isValidFields([$nom, $prenom, $tel, $email, $pass], ['Nom', 'Prénom', 'Téléphone', 'Email', 'Mot de passe']);
+    
+            if(count($errors) == 0){
+                userAdminUpdate($email, $nom, $prenom, $tel, $pass, $user_id);
+            }
+        }
+        $user = getUserById($_GET['id']);
+        require('views/admin/adminEditUsersView.php');
+    }else{
+        header("Location: index.php?p=404");
+    }
+}
+
 ?>

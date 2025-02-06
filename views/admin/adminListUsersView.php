@@ -26,7 +26,7 @@
                             <td><?php echo $user["nom"]; ?></td>
                             <td><?php echo $user["prenom"]; ?></td>
                             <td><?php echo $user["tel"]; ?></td>
-                            <td></td>
+                            <td><a href="index.php?p=admin-edit-users&id=<?php echo $user["id"]; ?>">Modifier</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

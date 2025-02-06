@@ -7,6 +7,15 @@
         </div>
         <div class="col-8 ">
             <h3 class="mb-30">Ajouter un terrain</h3>
+            <?php 
+            if (isset($errors) && count($errors) > 0) {
+                echo "<div style='background:#ff000017;padding:10px'>";
+                foreach ($errors as $error) {
+                    echo "<p style='color:red;'>$error</p>";
+                }
+                echo "</div>";
+            }
+            ?>
             <form action="index.php?p=admin-add-terrain" method="post" class="form">
                 <div>
                     <label for="nom">Nom <span class="red">*</span></label>

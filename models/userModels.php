@@ -28,6 +28,21 @@ function userUpdate($nom, $prenom, $tel, $id) {
     $pdoStatement->execute();
 }
 
+function userAdminUpdate($email, $nom, $prenom, $tel, $pass, $user_id) {
+    $pdo = dbConnect();
+    $pdoStatement = $pdo->prepare('UPDATE user SET nom = :nom, prenom = :prenom, tel = :tel, email = :email, pass = :pass WHERE id = :user_id');
+
+    $pdoStatement->bindParam(':nom', $nom, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':tel', $tel, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':email', $email, PDO::PARAM_STR);
+    $hashPassword = password_hash($pass, PASSWORD_BCRYPT);
+    $pdoStatement->bindParam(':pass', $hashPassword, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+
+    $pdoStatement->execute();
+}
+
 /**
  * Cette fonction retourne l'utilisateur. Si l'utilisateur n'est pas trouve dans la BDD on retourne false
  */
