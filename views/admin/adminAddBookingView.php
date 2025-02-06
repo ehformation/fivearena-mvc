@@ -7,6 +7,15 @@
         </div>
         <div class="col-8 ">
             <h3 class="mb-30">Ajouter une reservation</h3>
+            <?php 
+                if (isset($errors) && count($errors) > 0) {
+                    echo "<div style='background:#ff000017;padding:10px'>";
+                    foreach ($errors as $error) {
+                        echo "<p style='color:red;'>$error</p>";
+                    }
+                    echo "</div>";
+                }
+            ?>
             <form action="index.php?p=admin-add-booking" method="post" class="form">
                 <div>
                     <label for="terrain">Terrains <span class="red">*</span></label>
@@ -20,7 +29,9 @@
                     <label for="user">Utilisateur <span class="red">*</span></label>
                     <select name="user_id" id="user">
                         <?php foreach($users as $user) :  ?>
-                            <option value="<?php echo $user['id'] ?>"><?php echo $user['nom'] ?> <?php echo $user['prenom'] ?></option>
+                            <option value="<?php echo $user['id'] ?>">
+                                <?php echo $user['nom'] ?> <?php echo $user['prenom'] ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
