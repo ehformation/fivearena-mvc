@@ -48,3 +48,19 @@ function addTerrain($nom, $description, $surface, $options, $adresse, $prix){
 
     return $pdoStatement->execute();
 }
+
+function updateTerrain($nom, $description, $surface, $options, $adresse, $prix, $terrain_id) {
+    $pdo = dbConnect();
+    $pdoStatement = $pdo->prepare('UPDATE terrain SET nom = :nom, description = :description, adresse = :adresse, surface = :surface, options = :options, prix = :prix WHERE id = :terrain_id');
+
+    $pdoStatement->bindParam(':nom', $nom, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':description', $description, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':surface', $surface, PDO::PARAM_STR);
+    $pdoStatement->bindParam(':options', $options, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':adresse', $adresse, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':prix', $prix, PDO::PARAM_STR);
+    $pdoStatement->bindValue(':terrain_id', $terrain_id, PDO::PARAM_INT);
+
+    $pdoStatement->execute();
+}
+
